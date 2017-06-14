@@ -1,0 +1,32 @@
+{
+  "name": "modu-threejs-vector",
+  "version": "1.0.0",
+  "description": "modu",
+  "main": "app.js",
+  "scripts": {
+    "build": "start webpack --watch ./src/index.js ./build/index.bundle.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhygns/modu-threejs-practice00.git"
+  },
+  "keywords": [
+    "practice",
+    "example"
+  ],
+  "author": "donghyeon kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dhygns/modu-threejs-practice00/issues"
+  },
+  "homepage": "https://github.com/dhygns/modu-threejs-practice00#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "n3d-threejs": "^76.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.15.3",
+    "webpack": "^2.6.1"
+  }
+}
