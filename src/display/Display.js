@@ -1,6 +1,4 @@
 import THREE from "n3d-threejs"
-import Brush from "./Brush.js"
-
 class Display {
 
   constructor() {
@@ -8,31 +6,44 @@ class Display {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this.renderer.domElement);
 
-    this.brush = new Brush();
+    //Create Camera
+    this.camera = new THREE.PerspectiveCamera(
+      45, //Field Of View (45도)
+      window.innerWidth / window.innerHeight, //Ratio oF ViewPort (화면 비율)
+      1.0, //Near Plane (표현가능 최소 거리)
+      1000.0 //Far Plane (표현가능 최대 거리)
+    );
+    this.camera.position.z = 50.0;
 
-    this.camera = new THREE.Camera();
+    //Create Scene
     this.scene = new THREE.Scene();
 
-    this.scene.add(new THREE.Mesh(
+    //Create Object
+    this.object = new THREE.Object3D();
+    this.object.add(new THREE.Mesh(
       new THREE.PlaneGeometry(2.0, 2.0),
-      new THREE.MeshBasicMaterial({ map : this.brush.texture })
+      new THREE.MeshBasicMaterial({ color : "red" })
     ));
 
+    this.scene.add(this.object);
   }
 
-
-  update() {
+  //private Function
+  _updateTime() {
     if(this.oldt == undefined) this.nowt = this.oldt = new Date() * 0.001;
     this.nowt = new Date() * 0.001;
     this.delt = this.nowt - this.oldt;
     this.oldt = this.nowt;
+  }
 
 
-    this.brush.update(this.delt);
+  //public Function
+  update() {
+    this._updateTime(); //deltaTime Update
+
   }
 
   render() {
-    this.brush.render(this.renderer);
     this.renderer.render(this.scene, this.camera);
   }
 
