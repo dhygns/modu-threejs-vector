@@ -18,29 +18,40 @@ class Display {
     //Create Scene
     this.scene = new THREE.Scene();
 
-    //Create Object
+    this._initObject();
+  }
+
+  //private Function
+  _initObject() {
     this.object = new THREE.Object3D();
     this.object.add(new THREE.Mesh(
       new THREE.PlaneGeometry(2.0, 2.0),
       new THREE.MeshBasicMaterial({ color : "red" })
     ));
 
+    this.object.velocity = {x : (Math.random() - 0.5) * 1.00 , y: (Math.random() - 0.5) * 1.00 };
+    this.object.accelate = {x : (Math.random() - 0.5) * 0.01 , y: (Math.random() - 0.5) * 0.01 };
+
     this.scene.add(this.object);
   }
 
-  //private Function
   _updateTime() {
     if(this.oldt == undefined) this.nowt = this.oldt = new Date() * 0.001;
     this.nowt = new Date() * 0.001;
     this.delt = this.nowt - this.oldt;
-    this.oldt = this.nowt;
+    return this.delt;
   }
 
 
   //public Function
   update() {
-    this._updateTime(); //deltaTime Update
+    var dt = this._updateTime(); //deltaTime Update
 
+    this.object.velocity.x += this.object.accelate.x * dt;
+    this.object.velocity.y += this.object.accelate.y * dt;
+
+    this.object.position.x += this.object.velocity.x * dt;
+    this.object.position.y += this.object.velocity.y * dt;
   }
 
   render() {

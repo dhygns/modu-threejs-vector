@@ -13,6 +13,7 @@ var setup = function() {
 var update = function() {
   display.update();
   display.render();
+
   //update함수를 호출하는것을 예약해둡니다. (재귀적 형태)
   requestAnimationFrame(update);
 }
