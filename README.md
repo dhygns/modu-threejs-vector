@@ -1,4 +1,6 @@
-# n3d-Subway
+# modu-threejs-vector
+Nature Of CODE에서 소개된 Vector의 특성을 속도와 가속도를 설정하여 움직임을 표현한 예제입니다.
+
 
 ## 필요요소
 - ``git(2.14.0.windows.1 혹은 이에 상응하는 osx버전)``에 대한 이해 및 설치
@@ -14,11 +16,11 @@
 ## 설치
 - step1. cmd 혹은 terminal에서 원하는 경로로 이동한 뒤 아래와 같이 입력
 ```
-git clone https://github.com/dhygns/modu-threejs-practice00.git
+git clone https://github.com/dhygns/modu-threejs-vector.git
 ```
 - step2. 이후 생성된 폴더로 이동
 ```
-cd modu-threejs-practice00
+cd modu-threejs-vector
 ```
 - step3. npm을 사용하여 필요한 module들을 설치합니다.
 ```
@@ -26,14 +28,14 @@ npm install
 ```
 
 ## 빌드
-- step1. "*modu-threejs-practice00*" 폴더에서 아래의 명령어를 통해 빌드합니다.
+- step1. "*modu-threejs-vector*" 폴더에서 아래의 명령어를 통해 빌드합니다.
 ```
 npm run build
 ```
 해당 명령어 실행후 자동으로 빌드됩니다. 다른 명령어를 실행하고 싶으신 경우는 ```ctrl + c```를 눌러 빠져 나간 후 진행하거나, 새 창을 켜서 실행시키면 됩니다.
 
 ## 실행
-- step1. "*modu-threejs-practice00*" 폴더에서 아래의 명령어를 통해 서버를 실행시킵니다
+- step1. "*modu-threejs-vector*" 폴더에서 아래의 명령어를 통해 서버를 실행시킵니다
 ```
 npm run start
 ```
